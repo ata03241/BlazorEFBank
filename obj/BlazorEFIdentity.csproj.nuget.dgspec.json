@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\BlazorEFIdentity.csproj": {}
+    "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\BlazorEFIdentity.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\BlazorEFIdentity.csproj": {
+    "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\BlazorEFIdentity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\BlazorEFIdentity.csproj",
+        "projectUniqueName": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\BlazorEFIdentity.csproj",
         "projectName": "BlazorEFIdentity",
-        "projectPath": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\BlazorEFIdentity.csproj",
+        "projectPath": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\BlazorEFIdentity.csproj",
         "packagesPath": "C:\\Users\\pakhr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\obj\\",
+        "outputPath": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -5,21 +5,34 @@
 <PageTitle>Personal Data</PageTitle>
 
 <StatusMessage />
-<h3>Personal Data</h3>
+<h3 class="text-center mb-4 fw-bold text-primary">Personal Data</h3>
 
-<div class="row">
-    <div class="col-md-6">
-        <p>Your account contains personal data that you have given us. This page allows you to download or delete that data.</p>
-        <p>
-            <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
-        </p>
-        <form action="Account/Manage/DownloadPersonalData" method="post">
-            <AntiforgeryToken />
-            <button class="btn btn-primary" type="submit">Download</button>
-        </form>
-        <p>
-            <a href="Account/Manage/DeletePersonalData" class="btn btn-danger">Delete</a>
-        </p>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-lg border-0 rounded-4 p-4">
+            <div class="card-body">
+                <p class="lead text-muted">
+                    Your account contains personal data that you have provided. You can either <strong>download</strong> your data or <strong>delete</strong> your account permanently.
+                </p>
+                <div class="alert alert-warning border-0 rounded-3">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <strong>Warning:</strong> Deleting your account is <strong>irreversible</strong>. All your data will be lost permanently.
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <form action="Account/Manage/DownloadPersonalData" method="post">
+                        <AntiforgeryToken />
+                        <button class="btn btn-lg btn-primary shadow-sm">
+                            <i class="bi bi-download me-2"></i>Download Data
+                        </button>
+                    </form>
+
+                    <a href="Account/Manage/DeletePersonalData" class="btn btn-lg btn-danger shadow-sm">
+                        <i class="bi bi-trash-fill me-2"></i> Delete Account
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

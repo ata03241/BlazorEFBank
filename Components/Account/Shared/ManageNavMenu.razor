@@ -3,29 +3,41 @@
 
 @inject SignInManager<ApplicationUser> SignInManager
 
-<ul class="nav nav-pills flex-column">
-    <li class="nav-item">
-        <NavLink class="nav-link" href="Account/Manage" Match="NavLinkMatch.All">Profile</NavLink>
-    </li>
-    <li class="nav-item">
-        <NavLink class="nav-link" href="Account/Manage/Email">Email</NavLink>
-    </li>
-    <li class="nav-item">
-        <NavLink class="nav-link" href="Account/Manage/ChangePassword">Password</NavLink>
-    </li>
+<div class="d-flex flex-column mb-3">
+    <div class="nav-item" >
+        <NavLink class="nav-link rounded-pill p-3 mb-2 shadow-sm transition-all hover-effect" style="border: 2px solid #6c757d" href="Account/Manage" Match="NavLinkMatch.All">
+            Profile
+        </NavLink>
+    </div>
+    <div class="nav-item">
+        <NavLink class="nav-link rounded-pill p-3 mb-2 shadow-sm transition-all hover-effect" style="border: 2px solid #6c757d" href="Account/Manage/Email">
+            Email
+        </NavLink>
+    </div>
+    <div class="nav-item">
+        <NavLink class="nav-link rounded-pill p-3 mb-2 shadow-sm transition-all hover-effect" style="border: 2px solid #6c757d" href="Account/Manage/ChangePassword">
+            Password
+        </NavLink>
+    </div>
     @if (hasExternalLogins)
     {
-        <li class="nav-item">
-            <NavLink class="nav-link" href="Account/Manage/ExternalLogins">External logins</NavLink>
-        </li>
+        <div class="nav-item">
+            <NavLink class="nav-link rounded-pill p-3 mb-2 shadow-sm transition-all hover-effect" style="border: 2px solid #6c757d" href="Account/Manage/ExternalLogins">
+                External logins
+            </NavLink>
+        </div>
     }
-    <li class="nav-item">
-        <NavLink class="nav-link" href="Account/Manage/TwoFactorAuthentication">Two-factor authentication</NavLink>
-    </li>
-    <li class="nav-item">
-        <NavLink class="nav-link" href="Account/Manage/PersonalData">Personal data</NavLink>
-    </li>
-</ul>
+    <div class="nav-item">
+        <NavLink class="nav-link rounded-pill p-3 mb-2 shadow-sm transition-all hover-effect" style="border: 2px solid #6c757d" href="Account/Manage/TwoFactorAuthentication">
+            Two-factor authentication
+        </NavLink>
+    </div>
+    <div class="nav-item">
+        <NavLink class="nav-link rounded-pill p-3 mb-2 shadow-sm transition-all hover-effect" style="border: 2px solid #6c757d" href="Account/Manage/PersonalData">
+            Personal data
+        </NavLink>
+    </div>
+</div>
 
 @code {
     private bool hasExternalLogins;

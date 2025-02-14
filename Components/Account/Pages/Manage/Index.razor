@@ -11,25 +11,66 @@
 
 <PageTitle>Profile</PageTitle>
 
-<h3>Profile</h3>
 <StatusMessage />
 
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-md-6">
-        <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
-            <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert" />
-            <div class="form-floating mb-3">
-                <input type="text" value="@username" class="form-control" placeholder="Please choose your username." disabled />
-                <label for="username" class="form-label">Username</label>
-            </div>
-            <div class="form-floating mb-3">
-                <InputText @bind-Value="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number." />
-                <label for="phone-number" class="form-label">Phone number</label>
-                <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
-            </div>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
-        </EditForm>
+        <div class="card shadow-lg p-4">
+            <h3 class="text-center mb-4 fw-bold text-primary">Edit Profile</h3>
+            <!-- Add a unique FormName here -->
+            <EditForm Model="Input" FormName="profileForm" OnValidSubmit="OnValidSubmitAsync" method="post">
+                <DataAnnotationsValidator />
+                <ValidationSummary class="text-danger" role="alert" />
+
+                <!-- Username (Read-only) -->
+                <div class="form-floating mb-3">
+                    <input type="text" value="@username" class="form-control" placeholder="Username" disabled />
+                    <label class="form-label"><i class="bi bi-person-circle me-2"></i>Username</label>
+                </div>
+
+                <!-- First Name -->
+                <div class="form-floating mb-3">
+                    <InputText @bind-Value="Input.FirstName" class="form-control" placeholder="Enter first name" />
+                    <label><i class="bi bi-person me-2"></i>First Name</label>
+                    <ValidationMessage For="() => Input.FirstName" class="text-danger mt-1" />
+                </div>
+
+                <!-- Last Name -->
+                <div class="form-floating mb-3">
+                    <InputText @bind-Value="Input.LastName" class="form-control" placeholder="Enter last name" />
+                    <label><i class="bi bi-person me-2"></i>Last Name</label>
+                    <ValidationMessage For="() => Input.LastName" class="text-danger mt-1" />
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-floating mb-3 position-relative">
+                    <InputText @bind-Value="Input.PhoneNumber" class="form-control pe-5" placeholder="Enter phone number" />
+                    <label><i class="bi bi-telephone me-2"></i>Phone Number</label>
+                    <span class="position-absolute end-0 top-50 translate-middle-y me-3 text-muted">
+                        <i class="bi bi-phone"></i>
+                    </span>
+                    <ValidationMessage For="() => Input.PhoneNumber" class="text-danger mt-1" />
+                </div>
+
+                <!-- Address -->
+                <div class="form-floating mb-3">
+                    <InputText @bind-Value="Input.Address" class="form-control" placeholder="Enter address" />
+                    <label><i class="bi bi-house-door me-2"></i>Address</label>
+                    <ValidationMessage For="() => Input.Address" class="text-danger mt-1" />
+                </div>
+
+                <!-- Personnummer -->
+                <div class="form-floating mb-3">
+                    <InputText @bind-Value="Input.Personnummer" class="form-control" placeholder="Enter personnummer" />
+                    <label><i class="bi bi-card-text me-2"></i>Personnummer</label>
+                    <ValidationMessage For="() => Input.Personnummer" class="text-danger mt-1" />
+                </div>
+
+                <button type="submit" class="w-100 btn btn-lg btn-primary shadow-sm" style="transition: 0.3s;">
+                    <i class="bi bi-save me-2"></i>Save
+                </button>
+            </EditForm>
+        </div>
     </div>
 </div>
 
@@ -37,6 +78,7 @@
     private ApplicationUser user = default!;
     private string? username;
     private string? phoneNumber;
+    private bool isUpdated = false;
 
     [CascadingParameter]
     private HttpContext HttpContext { get; set; } = default!;
@@ -46,32 +88,88 @@
 
     protected override async Task OnInitializedAsync()
     {
+        // Hämta användaren från databasen
         user = await UserAccessor.GetRequiredUserAsync(HttpContext);
+
+        // Hämta nuvarande värden från databasen
         username = await UserManager.GetUserNameAsync(user);
         phoneNumber = await UserManager.GetPhoneNumberAsync(user);
 
+        // Sätt initiala värden i formuläret
+        Input.FirstName = user.FirstName;
+        Input.LastName = user.LastName;
         Input.PhoneNumber ??= phoneNumber;
+        Input.Address = user.Address;
+        Input.Personnummer = user.Personnummer;
     }
 
     private async Task OnValidSubmitAsync()
     {
+        bool isProfileUpdated = false;
+
+        // Uppdatera telefonnummer om det har ändrats
         if (Input.PhoneNumber != phoneNumber)
         {
             var setPhoneResult = await UserManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
             if (!setPhoneResult.Succeeded)
             {
                 RedirectManager.RedirectToCurrentPageWithStatus("Error: Failed to set phone number.", HttpContext);
+                return;
             }
+            isProfileUpdated = true;
         }
 
-        await SignInManager.RefreshSignInAsync(user);
-        RedirectManager.RedirectToCurrentPageWithStatus("Your profile has been updated", HttpContext);
+        // Uppdatera övriga fält om de har ändrats
+        if (Input.FirstName != user.FirstName ||
+            Input.LastName != user.LastName ||
+            Input.Address != user.Address ||
+            Input.Personnummer != user.Personnummer)
+        {
+            user.FirstName = Input.FirstName;
+            user.LastName = Input.LastName;
+            user.Address = Input.Address;
+            user.Personnummer = Input.Personnummer;
+
+            var updateResult = await UserManager.UpdateAsync(user);
+            if (!updateResult.Succeeded)
+            {
+                RedirectManager.RedirectToCurrentPageWithStatus("Error: Failed to update profile.", HttpContext);
+                return;
+            }
+            isProfileUpdated = true;
+        }
+
+        // If something has been updated, refresh the sign-in
+        if (isProfileUpdated)
+        {
+            await SignInManager.RefreshSignInAsync(user);
+            isUpdated = true; // Mark as updated
+        }
     }
 
     private sealed class InputModel
     {
+        [Required]
+        [StringLength(50, MinimumLength = 2)]
+        [Display(Name = "First Name")]
+        public string? FirstName { get; set; }
+
+        [Required]
+        [StringLength(50, MinimumLength = 2)]
+        [Display(Name = "Last Name")]
+        public string? LastName { get; set; }
+
         [Phone]
         [Display(Name = "Phone number")]
         public string? PhoneNumber { get; set; }
+
+        [StringLength(100)]
+        [Display(Name = "Address")]
+        public string? Address { get; set; }
+
+        [Required]
+        [StringLength(12, MinimumLength = 10)]
+        [Display(Name = "Personnummer")]
+        public string? Personnummer { get; set; }
     }
 }

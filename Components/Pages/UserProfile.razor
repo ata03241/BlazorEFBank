@@ -1,0 +1,14 @@
+﻿@page "/UserProfile"
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> userManager
+@inject AuthenticationStateProvider authenticationStateProvider
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize(Roles = "User")]
+
+<PageTitle>User Profile</PageTitle>
+
+
+@code {
+
+}

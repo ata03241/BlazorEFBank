@@ -1,0 +1,189 @@
+﻿@page "/Admin"
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> userManager
+@inject RoleManager<IdentityRole> RoleManager
+@inject AuthenticationStateProvider authenticationStateProvider
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.EntityFrameworkCore
+@rendermode InteractiveServer
+
+@attribute [Authorize(Roles = "Admin")]
+
+<PageTitle>Admin - User Management</PageTitle>
+
+<div class="container mt-5">
+    <h3 class="text-center mb-4 fw-bold text-primary">User Management</h3>
+
+    @if (users != null && users.Any())
+    {
+        <div class="table-responsive" style="margin-top: 5%;">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Address</th>
+                        <th>Personnummer</th>
+                        <th>Roles</th>
+                        <th>Actions</th>
+                        <th>Remove User</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in users)
+                    {
+                        <tr>
+                            <td>@user.FirstName @user.LastName</td>
+                            <td>@user.Handle</td>
+                            <td>@user.Email</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.Address</td>
+                            <td>@user.Personnummer</td>
+                            <td>
+                                @foreach (var role in userRoles[user.Id])
+                                {
+                                    <span class="badge bg-success me-1">@role</span>
+                                }
+                            </td>
+                            <td>
+                                <ul>
+                                    @foreach (var role in userRoles[user.Id])
+                                    {
+                                        <li>
+                                            @role
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" @onclick="() => RemoveRoleFromUser(user.Id, role)">
+                                                <path fill="#d01010" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zm2-4h2V8H9zm4 0h2V8h-2z" />
+                                            </svg>
+                                        </li>
+                                    }
+                                </ul>
+
+                                <select class="form-select" @onchange="async (e) => await AddRoleToUser(user.Id, e.Value.ToString())">
+                                    <option disabled selected>Välj en roll</option>
+                                    @foreach (var role in predefinedRoles) //loops the roles
+                                    {
+                                        if (!userRoles[user.Id].Contains(role)) //roles that user doesn`t have
+                                        {
+                                            <option value="@role">@role</option>
+                                        }
+                                    }
+                                </select>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger" @onclick="ShowModal">Delete</button>
+                            </td>
+
+                            <div class="modal @(isModalOpen ? "show d-block" : "fade")" >
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Delete User</h5>
+                                            <button type="button" class="btn-close" @onclick="CloseModal"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete this @user?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-danger" @onclick="() => RemoveUser(user.Id)">Delete</button>
+                                            <button type="button" class="btn btn-secondary" @onclick="CloseModal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>          
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+    private bool isModalOpen = false;
+
+    private void ShowModal()
+    {
+        isModalOpen = true;
+    }
+
+    private void CloseModal()
+    {
+        isModalOpen = false;
+    }
+
+    private List<ApplicationUser> users = new();
+    private Dictionary<string, List<string>> userRoles = new();
+    private List<string> predefinedRoles = new() { "Admin", "User", "Manager", "LoanOfficer", "Teller" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadUsers();
+    }
+
+    private async Task LoadUsers()
+    {
+        users = userManager.Users.ToList();
+        foreach (var user in users)
+        {
+            var roles = await userManager.GetRolesAsync(user);
+            userRoles[user.Id] = roles.ToList();
+        }
+        StateHasChanged();
+    }
+
+    private async Task AddRoleToUser(string userId, string role)
+    {
+        var user = await userManager.FindByIdAsync(userId);
+        if (user == null || !predefinedRoles.Contains(role)) return; 
+
+        var result = await userManager.AddToRoleAsync(user, role);
+        if (result.Succeeded)
+        {
+            userRoles[userId].Add(role); //add the role to the local dictionary
+            StateHasChanged(); //refresh
+        }
+    }
+
+    private async Task RemoveRoleFromUser(string userId, string role)
+    {
+        
+        var user = await userManager.FindByIdAsync(userId);
+
+        if (user == null || !predefinedRoles.Contains(role)) return;
+
+        // to remove the specified role from the user
+        var result = await userManager.RemoveFromRoleAsync(user, role);
+
+        if (result.Succeeded)
+        {
+            // Remove the role from the local dictonary
+            userRoles[userId].Remove(role);
+
+            StateHasChanged();
+        }
+    }
+
+    private async Task RemoveUser(string userId)
+    {
+        var user = await userManager.FindByIdAsync(userId);
+        if (user == null) return;
+
+        var Remove = await userManager.DeleteAsync(user);
+        if(Remove.Succeeded)
+        {
+            users.RemoveAll(u => u.Id == user.Id);
+            userRoles.Remove(userId);
+            StateHasChanged();
+        }
+
+
+    }
+}
+
+
+
+
