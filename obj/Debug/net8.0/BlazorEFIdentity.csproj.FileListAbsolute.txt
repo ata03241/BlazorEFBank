@@ -531,3 +531,4 @@ C:\Users\pakhr\OneDrive\Desktop\Entityframworkbank\BlazorEFIdentity\obj\Debug\ne
 C:\Users\pakhr\OneDrive\Desktop\Entityframworkbank\BlazorEFIdentity\obj\Debug\net8.0\ref\BlazorEFIdentity.dll
 C:\Users\pakhr\OneDrive\Desktop\Entityframworkbank\BlazorEFIdentity\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\pakhr\OneDrive\Desktop\Entityframworkbank\BlazorEFIdentity\obj\Debug\net8.0\BlazorEFIdentity.sourcelink.json
+C:\Users\pakhr\OneDrive\Desktop\Entityframworkidentity\BlazorEFIdentity\obj\Debug\net8.0\BlazorEFIdentity.sourcelink.json

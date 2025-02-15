@@ -6,6 +6,7 @@
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.WebUtilities
 @using BlazorEFIdentity.Data
+@using BlazorEFIdentity.Model
 
 @inject UserManager<ApplicationUser> UserManager
 @inject IUserStore<ApplicationUser> UserStore
@@ -14,6 +15,7 @@
 @inject ILogger<Register> Logger
 @inject NavigationManager NavigationManager
 @inject IdentityRedirectManager RedirectManager
+@inject ApplicationDbContext DbContext
 
 <PageTitle>Register</PageTitle>
 
@@ -135,7 +137,7 @@
                 return;
             }
         }  
-        
+
         if(Input.PhoneNumber is not null)
         {
             user.PhoneNumber = Input.PhoneNumber;
@@ -169,6 +171,8 @@
             }
         }
 
+     
+
         await UserStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
         var emailStore = GetEmailStore();
         await emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -179,6 +183,23 @@
             identityErrors = result.Errors;
             return;
         }
+        //to create account number
+        var newaccount = new Account
+            {
+                AccountNumber = GenerateaccountNumber(),
+                Name = user.FirstName + " " + user.LastName,
+                Balance = 0,
+                AccountType = "Main Account",
+                IsActive = true,
+                CardNumber = GenerateCardNumber(),
+                UserId = user.Id,
+                Transactions = new List<Transaction>()
+
+            };
+
+        DbContext.Accounts.Add(newaccount);
+        await DbContext.SaveChangesAsync();
+
         await UserManager.AddToRoleAsync(user, "User");
 
         Logger.LogInformation("User created a new account with password.");
@@ -201,6 +222,28 @@
 
         await SignInManager.SignInAsync(user, isPersistent: false);
         RedirectManager.RedirectTo(ReturnUrl);
+    }
+
+    private string GenerateaccountNumber()
+    {
+        Random random = new Random();
+        string accountNumber = "";
+        for (int i = 0; i < 10; i++)
+        {
+            accountNumber += random.Next(0, 10).ToString();
+        }
+        return accountNumber;
+    }
+
+    private string GenerateCardNumber()
+    {
+        Random random = new Random();
+        string cardNumber = "";
+        for (int i = 0; i < 16; i++)
+        {
+            cardNumber += random.Next(0, 10).ToString();
+        }
+        return cardNumber;
     }
 
     private ApplicationUser CreateUser()

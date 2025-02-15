@@ -1,7 +1,309 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Authorization
+@using BlazorEFIdentity.Data
+@inject UserManager<ApplicationUser> userManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject ApplicationDbContext dbContext
+@using BlazorEFIdentity.Model
+@rendermode InteractiveServer
 
-<PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+@attribute [Authorize]
 
-Welcome to your new app.
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/66c72e9fea492f34bc08ed87/1i5t0s8ee';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+
+<div class="container mt-4" >
+    <div class="d-flex" style="gap: 20px; align-content: space-around; width: 100%;">
+        <div class="d-flex flex-wrap gap-3" style="flex-direction: column;">
+            <div class=" p-3 border rounded" style="min-height: 17vh; width: 85%;">
+                <h1 class="text-center text-uppercase font-weight-bold" style="font-size: 1.5rem;">Budget Planning</h1>
+                <div class="alert alert-secondary text-center mt-2">
+                    No budget plans available. Start tracking your expenses today!
+                </div>
+            </div>
+
+            <div class=" p-3 border rounded" style="min-height: 17vh; width: 85%;">
+                <h1 class="text-center text-uppercase font-weight-bold" style="font-size: 1.5rem;">E-invoice to pay</h1>
+                <div class="alert alert-secondary text-center mt-2">
+                    There are no e-invoices to pay.
+                </div>
+            </div> 
+        </div>
+
+        <div class="p-3 border rounded" style="width: 35%; min-height: 40vh; margin-right: 1%;">
+            <h1 class="text-center text-uppercase font-weight-bold" style="font-size: 1.5rem;">Inbox</h1>
+            <div class="d-flex flex-column gap-2 mt-3">
+
+                <div class="flex-fill p-2 bg-light text-dark rounded" style="border: 2px solid gray;">
+                    <h3 class="text-center" style="font-size: 1.2rem; font-weight: bold; margin-right: 50%; ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 5%;">
+                            <path fill="#000" d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m-2 12H6v-2h12zm0-3H6V9h12zm0-3H6V6h12z" />
+                        </svg>
+                        Messages
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                <path fill="#000" d="M16.06 10.94a1.5 1.5 0 0 1 0 2.12l-5.656 5.658a1.5 1.5 0 1 1-2.121-2.122L12.879 12L8.283 7.404a1.5 1.5 0 0 1 2.12-2.122l5.658 5.657Z" />
+                            </g>
+                        </svg>
+                    </h3>
+                </div>
+
+                <div class="flex-fill p-2 bg-light text-dark rounded" style="border: 2px solid gray;">
+                    <h3 class="text-center" style="font-size: 1.2rem; font-weight: bold; margin-right: 46%; ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 5%;">
+                            <path fill="#000" fill-rule="evenodd" d="M14.25 2.5a.25.25 0 0 0-.25-.25H7A2.75 2.75 0 0 0 4.25 5v14A2.75 2.75 0 0 0 7 21.75h10A2.75 2.75 0 0 0 19.75 19V9.147a.25.25 0 0 0-.25-.25H15a.75.75 0 0 1-.75-.75zm.75 9.75a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1 0-1.5zm0 4a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1 0-1.5z" />
+                            <path fill="#000" d="M15.75 2.824c0-.184.193-.301.336-.186q.182.147.323.342l3.013 4.197c.068.096-.006.22-.124.22H16a.25.25 0 0 1-.25-.25z" />
+                        </svg>
+                        Documents
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                <path fill="#000" d="M16.06 10.94a1.5 1.5 0 0 1 0 2.12l-5.656 5.658a1.5 1.5 0 1 1-2.121-2.122L12.879 12L8.283 7.404a1.5 1.5 0 0 1 2.12-2.122l5.658 5.657Z" />
+                            </g>
+                        </svg>
+                    </h3>
+                </div>
+
+                <div class="flex-fill p-2 bg-light text-dark rounded" style="border: 2px solid gray;">
+                    <h3 class="text-center" style="font-size: 1.2rem; font-weight: bold; margin-right: 55%; ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 5%;">
+                            <path fill="#000" d="m21 22l-3-2l-3 2l-3-2l-3 2l-3-2l-3 2V3h18z" />
+                        </svg>
+                        Invoices
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                <path fill="#000" d="M16.06 10.94a1.5 1.5 0 0 1 0 2.12l-5.656 5.658a1.5 1.5 0 1 1-2.121-2.122L12.879 12L8.283 7.404a1.5 1.5 0 0 1 2.12-2.122l5.658 5.657Z" />
+                            </g>
+                        </svg>
+                    </h3>
+                </div>
+
+                <div class="flex-fill p-2 bg-light text-dark rounded" style="border: 2px solid gray;">
+                    <h3 class="text-center" style="font-size: 1.2rem; font-weight: bold; margin-right: 60%; ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 5%;">
+                            <path fill="#000" d="M20 12V4c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v8l-2 2v2h18v-2l-2-2zm-8 1h-2v2h2v-2zM8 7h8V5H8v2z" />
+                        </svg>
+                        Tasks
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                <path fill="#000" d="M16.06 10.94a1.5 1.5 0 0 1 0 2.12l-5.656 5.658a1.5 1.5 0 1 1-2.121-2.122L12.879 12L8.283 7.404a1.5 1.5 0 0 1 2.12-2.122l5.658 5.657Z" />
+                            </g>
+                        </svg>
+                    </h3>
+                </div>
+
+                <div class="flex-fill p-2 bg-light text-dark rounded" style="border: 2px solid gray;">
+                    <h3 class="text-center" style="font-size: 1.2rem; font-weight: bold; margin-right: 40%; ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 5%;">
+                            <path fill="#000" d="M12 3v5.27c-1.17-.34-2.46-.52-3.77-.52-4.52 0-8.14 2.85-8.14 6.75s3.62 6.75 8.14 6.75c4.52 0 8.14-2.85 8.14-6.75S16.52 3 12 3zm0 9.74c-1.69 0-3.09-1.06-3.6-2.57h7.2c-.51 1.51-1.91 2.57-3.6 2.57z" />
+                        </svg>
+                        Notifications
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                <path fill="#000" d="M16.06 10.94a1.5 1.5 0 0 1 0 2.12l-5.656 5.658a1.5 1.5 0 1 1-2.121-2.122L12.879 12L8.283 7.404a1.5 1.5 0 0 1 2.12-2.122l5.658 5.657Z" />
+                            </g>
+                        </svg>
+                    </h3>
+                </div>
+
+                <div class="flex-fill p-2 bg-light text-dark rounded" style="border: 2px solid gray;">
+                    <h3 class="text-center" style="font-size: 1.2rem; font-weight: bold; margin-right: 54%; ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 5%;">
+                            <path fill="#000" d="M19.29 7.71l-1.42-1.42L12 10.17L5.13 4.29L3.71 5.71L10.59 12l-6.88 6.29l1.42 1.42L12 13.83l6.88 6.29l1.42-1.42L13.41 12z" />
+                        </svg>
+                        Archived
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                <path fill="#000" d="M16.06 10.94a1.5 1.5 0 0 1 0 2.12l-5.656 5.658a1.5 1.5 0 1 1-2.121-2.122L12.879 12L8.283 7.404a1.5 1.5 0 0 1 2.12-2.122l5.658 5.657Z" />
+                            </g>
+                        </svg>
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3 border rounded" style="min-height: 15vh; width: 30%;">
+            <h1 class="text-center text-uppercase font-weight-bold" style="font-size: 1.5rem;">How can we help you?</h1>
+            <div class="alert alert-secondary text-center mt-2">
+                Ask your question to the virtual assistant. Avoid sharing personal details such as your personal number or health information.
+            </div>
+            <div class="text-center mt-3">
+                <label for="questionInput" class="d-block">Ask your question here:</label>
+                <textarea id="questionInput" rows="3" class="form-control" placeholder="Type your question here..."></textarea>
+            </div>
+            <div class="text-center mt-3">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="flex-grow-1 p-4 text-white mt-5 rounded" style="height: auto; width: 42%; border: 2px solid gray;">
+        <h2 class="text-center text-uppercase font-weight-bold mb-4" style="font-size: 1.8rem; color: black;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" style="margin-right: 10px;">
+                <path fill="white" d="M12 2a5 5 0 1 1 0 10a5 5 0 0 1 0-10m0 12c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5" />
+            </svg>
+            My Account
+        </h2>
+
+        @if (user != null && accounts.Any())
+        {
+            @foreach (var account in accounts)
+            {
+                <div class="p-3 bg-light text-dark rounded mb-3" style="border: 2px solid gray;">
+                    <h4 class="mb-1">Account Name: @account.Name</h4>
+                    <p class="mb-1"><strong>Account Number:</strong> @account.AccountNumber</p>
+                    <p class="mb-1"><strong>Balance:</strong> $@account.Balance.ToString("N2")</p>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="p-3 bg-light text-dark rounded mb-3" style="border: 2px solid gray;">
+                <h4 class="mb-1">No account information available</h4>
+            </div>
+        }
+
+        <div class="p-3 bg-light text-dark rounded mb-3" style="border: 2px solid gray;">
+            <h4 class="mb-1">Account Name: Savings Account</h4>
+            <p class="mb-1"><strong>Account Number:</strong> 9876-5432-1098</p>
+            <p class="mb-1"><strong>Balance:</strong> $12,400.00</p>
+        </div>
+
+        <div class="text-center mt-3">
+            <button class="btn btn-light text-dark font-weight-bold" style="border: 2px solid gray;" @onclick="ShowModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 5px;">
+                    <path fill="black" d="M12 5v14m-7-7h14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Add More Account
+            </button>
+        </div>
+
+        <div class="modal @(isModalOpen ? "show d-block" : "fade")" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: black;">Add New Account</h5>
+                        <button type="button" class="close" aria-label="Close" @onclick="CloseModal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <EditForm Model="NewAccount" OnValidSubmit="SaveAccount">
+                            <DataAnnotationsValidator />
+
+                            <div class="form-group">
+                                <label style="color: black;">Account Name</label>
+                                <InputText @bind-Value="NewAccount.Name" class="form-control" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label style="color: black;">Balance</label>
+                                <InputNumber @bind-Value="NewAccount.Balance" class="form-control" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label style="color: black;">Account Type</label>
+                                <InputText @bind-Value="NewAccount.AccountType" class="form-control" required />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" @onclick="CloseModal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </EditForm>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="d-flex justify-content-between mt-4 gap-3">
+        <div class="flex-fill p-3 bg-primary text-white" style="height: 20vh;">Item 1</div>
+        <div class="flex-fill p-3 bg-secondary text-white" style="height: 20vh;">Item 2</div>
+    </div>
+</div>
+
+@code {
+    private ApplicationUser user;
+
+    private List<Account> accounts = new List<Account>();
+
+    private Account NewAccount = new Account();
+
+    public string Accountname { get; set; }
+
+    public decimal Balance { get; set; }
+
+    private bool isModalOpen = false;
+
+    private void ShowModal()
+    {
+        isModalOpen = true;
+    }
+
+    private void CloseModal()
+    {
+        isModalOpen = false;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var users = authState.User;
+        if (users.Identity.IsAuthenticated)
+        {
+            user = await userManager.GetUserAsync(users);
+            if (user != null)
+            {
+                accounts = dbContext.Accounts.Where(a => a.UserId == user.Id).ToList();
+
+            }
+        }
+    }
+
+    private async Task SaveAccount()
+    {
+        if (user is null) return;
+
+        NewAccount.UserId = user.Id;
+        NewAccount.AccountNumber = GenerateaccountNumber();
+        NewAccount.IsActive = true;
+
+        dbContext.Accounts.Add(NewAccount); //add to the local context
+        await dbContext.SaveChangesAsync(); //save to the database
+
+        accounts.Add(NewAccount); //add to the local list
+        NewAccount = new Account(); //reset the form
+        CloseModal(); //close the modal
+    }
+
+    private string GenerateaccountNumber()
+    {
+        Random random = new Random();
+        string accountNumber = "";
+        for (int i = 0; i < 10; i++)
+        {
+            accountNumber += random.Next(0, 10).ToString();
+        }
+        return accountNumber;
+    }
+}

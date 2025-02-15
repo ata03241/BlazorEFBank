@@ -17,12 +17,12 @@
     <div class="col-md-6">
         <div class="card shadow-lg p-4">
             <h3 class="text-center mb-4 fw-bold text-primary">Edit Profile</h3>
-            <!-- Add a unique FormName here -->
+
             <EditForm Model="Input" FormName="profileForm" OnValidSubmit="OnValidSubmitAsync" method="post">
                 <DataAnnotationsValidator />
                 <ValidationSummary class="text-danger" role="alert" />
 
-                <!-- Username (Read-only) -->
+               
                 <div class="form-floating mb-3">
                     <input type="text" value="@username" class="form-control" placeholder="Username" disabled />
                     <label class="form-label"><i class="bi bi-person-circle me-2"></i>Username</label>
@@ -88,14 +88,14 @@
 
     protected override async Task OnInitializedAsync()
     {
-        // Hämta användaren från databasen
+      
         user = await UserAccessor.GetRequiredUserAsync(HttpContext);
 
-        // Hämta nuvarande värden från databasen
+        
         username = await UserManager.GetUserNameAsync(user);
         phoneNumber = await UserManager.GetPhoneNumberAsync(user);
 
-        // Sätt initiala värden i formuläret
+      
         Input.FirstName = user.FirstName;
         Input.LastName = user.LastName;
         Input.PhoneNumber ??= phoneNumber;
@@ -107,7 +107,7 @@
     {
         bool isProfileUpdated = false;
 
-        // Uppdatera telefonnummer om det har ändrats
+        
         if (Input.PhoneNumber != phoneNumber)
         {
             var setPhoneResult = await UserManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
@@ -119,7 +119,7 @@
             isProfileUpdated = true;
         }
 
-        // Uppdatera övriga fält om de har ändrats
+        
         if (Input.FirstName != user.FirstName ||
             Input.LastName != user.LastName ||
             Input.Address != user.Address ||
@@ -139,11 +139,11 @@
             isProfileUpdated = true;
         }
 
-        // If something has been updated, refresh the sign-in
+       
         if (isProfileUpdated)
         {
             await SignInManager.RefreshSignInAsync(user);
-            isUpdated = true; // Mark as updated
+            isUpdated = true; 
         }
     }
 

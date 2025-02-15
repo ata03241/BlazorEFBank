@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "h+Cf6ay4cQzVT7Kz7k2Xj+AbQkXlDZFd4RHsQ5kTTPM=",
+  "Hash": "rEw3R8HuOabyMMOYiDG3nO+Ql0bdes0qQLkXA3iojnc=",
   "Source": "BlazorEFIdentity",
   "BasePath": "_content/BlazorEFIdentity",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BlazorEFIdentity\\wwwroot",
       "Source": "BlazorEFIdentity",
-      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\",
       "BasePath": "_content/BlazorEFIdentity",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorEFIdentity.styles.css",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorEFIdentity.styles.css",
       "SourceId": "BlazorEFIdentity",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BlazorEFIdentity",
       "RelativePath": "BlazorEFIdentity#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -35,13 +35,13 @@
       "Integrity": "+kVcR5E/Qc0Ku0IPQyJXSB9ow1OLwLF8dV1Z0g/BMSo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorEFIdentity.styles.css"
+      "OriginalItemSpec": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorEFIdentity.styles.css"
     },
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorEFIdentity.bundle.scp.css",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorEFIdentity.bundle.scp.css",
       "SourceId": "BlazorEFIdentity",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/BlazorEFIdentity",
       "RelativePath": "BlazorEFIdentity#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -56,13 +56,13 @@
       "Integrity": "+kVcR5E/Qc0Ku0IPQyJXSB9ow1OLwLF8dV1Z0g/BMSo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorEFIdentity.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorEFIdentity.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\app.css",
       "SourceId": "BlazorEFIdentity",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\",
       "BasePath": "_content/BlazorEFIdentity",
       "RelativePath": "app#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -73,17 +73,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "da95v2qkru",
-      "Integrity": "u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=",
+      "Fingerprint": "rgkgqcvs7k",
+      "Integrity": "m8UOxxkQhxJgVABpUmWvs0LqlO17BOTHa+6aEd5YxrU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "BlazorEFIdentity",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\",
       "BasePath": "_content/BlazorEFIdentity",
       "RelativePath": "bootstrap/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "BlazorEFIdentity",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\",
       "BasePath": "_content/BlazorEFIdentity",
       "RelativePath": "bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\favicon.png",
       "SourceId": "BlazorEFIdentity",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\",
       "BasePath": "_content/BlazorEFIdentity",
       "RelativePath": "favicon#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -146,7 +146,7 @@
   "Endpoints": [
     {
       "Route": "app.css",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\app.css",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -155,7 +155,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2591"
+          "Value": "2593"
         },
         {
           "Name": "Content-Type",
@@ -163,11 +163,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=\""
+          "Value": "\"m8UOxxkQhxJgVABpUmWvs0LqlO17BOTHa+6aEd5YxrU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Feb 2025 13:23:19 GMT"
+          "Value": "Fri, 14 Feb 2025 22:07:58 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -177,13 +177,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE="
+          "Value": "sha256-m8UOxxkQhxJgVABpUmWvs0LqlO17BOTHa+6aEd5YxrU="
         }
       ]
     },
     {
-      "Route": "app.da95v2qkru.css",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\app.css",
+      "Route": "app.rgkgqcvs7k.css",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -192,7 +192,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2591"
+          "Value": "2593"
         },
         {
           "Name": "Content-Type",
@@ -200,11 +200,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=\""
+          "Value": "\"m8UOxxkQhxJgVABpUmWvs0LqlO17BOTHa+6aEd5YxrU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Feb 2025 13:23:19 GMT"
+          "Value": "Fri, 14 Feb 2025 22:07:58 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -214,7 +214,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "da95v2qkru"
+          "Value": "rgkgqcvs7k"
         },
         {
           "Name": "label",
@@ -222,13 +222,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE="
+          "Value": "sha256-m8UOxxkQhxJgVABpUmWvs0LqlO17BOTHa+6aEd5YxrU="
         }
       ]
     },
     {
       "Route": "BlazorEFIdentity.bundle.scp.css",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorEFIdentity.bundle.scp.css",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorEFIdentity.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -249,7 +249,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 12 Feb 2025 15:04:28 GMT"
+          "Value": "Fri, 14 Feb 2025 08:51:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -265,7 +265,7 @@
     },
     {
       "Route": "BlazorEFIdentity.mhwilb9w86.bundle.scp.css",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorEFIdentity.bundle.scp.css",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorEFIdentity.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -286,7 +286,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 12 Feb 2025 15:04:28 GMT"
+          "Value": "Fri, 14 Feb 2025 08:51:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -310,7 +310,7 @@
     },
     {
       "Route": "BlazorEFIdentity.mhwilb9w86.styles.css",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorEFIdentity.styles.css",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorEFIdentity.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -331,7 +331,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 12 Feb 2025 15:04:28 GMT"
+          "Value": "Fri, 14 Feb 2025 08:51:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -355,7 +355,7 @@
     },
     {
       "Route": "BlazorEFIdentity.styles.css",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorEFIdentity.styles.css",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorEFIdentity.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -376,7 +376,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 12 Feb 2025 15:04:28 GMT"
+          "Value": "Fri, 14 Feb 2025 08:51:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -392,7 +392,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -413,7 +413,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Feb 2025 13:23:19 GMT"
+          "Value": "Fri, 14 Feb 2025 08:51:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -437,7 +437,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -458,7 +458,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Feb 2025 13:23:19 GMT"
+          "Value": "Fri, 14 Feb 2025 08:51:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -474,7 +474,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -495,7 +495,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Feb 2025 13:23:19 GMT"
+          "Value": "Fri, 14 Feb 2025 08:51:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -519,7 +519,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css.map",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -540,7 +540,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Feb 2025 13:23:19 GMT"
+          "Value": "Fri, 14 Feb 2025 08:51:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -556,7 +556,7 @@
     },
     {
       "Route": "favicon.ifv42okdf2.png",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\favicon.png",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\favicon.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -577,7 +577,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Feb 2025 13:23:19 GMT"
+          "Value": "Fri, 14 Feb 2025 08:51:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -601,7 +601,7 @@
     },
     {
       "Route": "favicon.png",
-      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkbank\\BlazorEFIdentity\\wwwroot\\favicon.png",
+      "AssetFile": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\favicon.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -622,7 +622,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Feb 2025 13:23:19 GMT"
+          "Value": "Fri, 14 Feb 2025 08:51:48 GMT"
         },
         {
           "Name": "Cache-Control",
