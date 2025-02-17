@@ -1,0 +1,90 @@
+﻿@page "/transfer"
+@using Microsoft.AspNetCore.Identity
+@using BlazorEFIdentity.Model
+@using Microsoft.AspNetCore.Authorization
+@using BlazorEFIdentity.Data
+@inject UserManager<ApplicationUser> userManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject ApplicationDbContext dbContext
+@rendermode InteractiveServer
+
+
+<h3>TransferComponent</h3>
+
+<div class="d-flex justify-content-center " style="height: 75vh; border: 2px solid gray; width: 30%; margin-left: 30%; margin-top: 4%;">
+    <div>
+        <h3 class="text-center" style="margin-top: 10%;">Transfer</h3>
+        <div class="row">
+            <div class="col-md-12 text-center" style="margin-top: 10%;">
+                <label for="fromAccount" class="form-label">From</label>
+                <select id="fromAccount" class="form-select" style="width: 100%; white-space: pre-line; height: 5vh;">
+                    <option disabled selected>Choose an account</option>
+                    @foreach (var account in accounts)
+                    {
+                        <option value="@account.Id">
+                            @account.Name
+                            (@account.AccountNumber)
+                            $@account.Balance.ToString("N2")
+                        </option>
+
+                    }
+                </select>
+
+                <label for="toAccountName" class="form-label" style="margin-top: 10%;">To</label>
+                <input type="text" id="toAccount" class="form-control" placeholder="Enter account Name" style="height: 5vh; margin-bottom: 2%;" />
+                <input type="text" id="toAccount" class="form-control" placeholder="Enter account number" style="height: 5vh;" />
+
+                <label for="amount" class="form-label" style="margin-top: 10%;">Amount</label>
+                <input type="text" id="amount" class="form-control" placeholder="Enter amount" style="height: 5vh;" />
+
+                <label for="description" class="form-label" style="margin-top: 10%;">Description</label>
+                <input type="text" id="description" class="form-control" placeholder="Enter description" style="height: 5vh;" />
+
+                <button class="btn btn-primary mt-3" style="margin-bottom: -30%; width: 50%; height: 5vh;">Transfer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private ApplicationUser user;
+    private List<Account> accounts = new List<Account>();
+    private List<Transaction> transactions = new List<Transaction>();
+    public string toAccountName { get; set; }
+    public string toAccount { get; set; }
+    public string amount { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var users = authState.User;
+        if (users.Identity.IsAuthenticated)
+        {
+            user = await userManager.GetUserAsync(users);
+            if (user != null)
+            {
+                accounts = dbContext.Accounts.Where(a => a.UserId == user.Id).ToList();
+
+            }
+        }
+    }
+
+    private async void TransferAccount(int accoundId)
+    {
+        var Fromaccount = await dbContext.Accounts.FindAsync(accoundId);
+
+        var ToAccount = accounts.Where(a => a.AccountNumber == toAccount).FirstOrDefault();
+
+        if(Fromaccount != null && ToAccount != null)
+        {
+            if(Fromaccount.Balance > 0)
+            {
+               
+            }
+        }
+       
+    }
+
+
+
+}

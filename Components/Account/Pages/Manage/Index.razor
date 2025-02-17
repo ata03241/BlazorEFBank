@@ -18,31 +18,31 @@
         <div class="card shadow-lg p-4">
             <h3 class="text-center mb-4 fw-bold text-primary">Edit Profile</h3>
 
-            <EditForm Model="Input" FormName="profileForm" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <EditForm Model="Input" OnValidSubmit="UpdateProfile" FormName="profile">
                 <DataAnnotationsValidator />
                 <ValidationSummary class="text-danger" role="alert" />
 
-               
+
                 <div class="form-floating mb-3">
                     <input type="text" value="@username" class="form-control" placeholder="Username" disabled />
                     <label class="form-label"><i class="bi bi-person-circle me-2"></i>Username</label>
                 </div>
 
-                <!-- First Name -->
+
                 <div class="form-floating mb-3">
                     <InputText @bind-Value="Input.FirstName" class="form-control" placeholder="Enter first name" />
                     <label><i class="bi bi-person me-2"></i>First Name</label>
                     <ValidationMessage For="() => Input.FirstName" class="text-danger mt-1" />
                 </div>
 
-                <!-- Last Name -->
+
                 <div class="form-floating mb-3">
                     <InputText @bind-Value="Input.LastName" class="form-control" placeholder="Enter last name" />
                     <label><i class="bi bi-person me-2"></i>Last Name</label>
                     <ValidationMessage For="() => Input.LastName" class="text-danger mt-1" />
                 </div>
 
-                <!-- Phone Number -->
+
                 <div class="form-floating mb-3 position-relative">
                     <InputText @bind-Value="Input.PhoneNumber" class="form-control pe-5" placeholder="Enter phone number" />
                     <label><i class="bi bi-telephone me-2"></i>Phone Number</label>
@@ -52,14 +52,14 @@
                     <ValidationMessage For="() => Input.PhoneNumber" class="text-danger mt-1" />
                 </div>
 
-                <!-- Address -->
+
                 <div class="form-floating mb-3">
                     <InputText @bind-Value="Input.Address" class="form-control" placeholder="Enter address" />
                     <label><i class="bi bi-house-door me-2"></i>Address</label>
                     <ValidationMessage For="() => Input.Address" class="text-danger mt-1" />
                 </div>
 
-                <!-- Personnummer -->
+
                 <div class="form-floating mb-3">
                     <InputText @bind-Value="Input.Personnummer" class="form-control" placeholder="Enter personnummer" />
                     <label><i class="bi bi-card-text me-2"></i>Personnummer</label>
@@ -88,27 +88,31 @@
 
     protected override async Task OnInitializedAsync()
     {
-      
+
         user = await UserAccessor.GetRequiredUserAsync(HttpContext);
-
-        
+       
         username = await UserManager.GetUserNameAsync(user);
-        phoneNumber = await UserManager.GetPhoneNumberAsync(user);
-
-      
-        Input.FirstName = user.FirstName;
-        Input.LastName = user.LastName;
-        Input.PhoneNumber ??= phoneNumber;
-        Input.Address = user.Address;
-        Input.Personnummer = user.Personnummer;
+        phoneNumber = await UserManager.GetPhoneNumberAsync(user);   
+        
+        if (string.IsNullOrEmpty(Input.FirstName))
+        {
+            Input = new InputModel
+                {
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    PhoneNumber = phoneNumber,
+                    Address = user.Address,
+                    Personnummer = user.Personnummer
+                };
+        }
+        
     }
 
-    private async Task OnValidSubmitAsync()
+    private async Task UpdateProfile()
     {
         bool isProfileUpdated = false;
 
-        
-        if (Input.PhoneNumber != phoneNumber)
+        if (user.PhoneNumber != Input.PhoneNumber)
         {
             var setPhoneResult = await UserManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
             if (!setPhoneResult.Succeeded)
@@ -119,12 +123,7 @@
             isProfileUpdated = true;
         }
 
-        
-        if (Input.FirstName != user.FirstName ||
-            Input.LastName != user.LastName ||
-            Input.Address != user.Address ||
-            Input.Personnummer != user.Personnummer)
-        {
+       
             user.FirstName = Input.FirstName;
             user.LastName = Input.LastName;
             user.Address = Input.Address;
@@ -137,38 +136,38 @@
                 return;
             }
             isProfileUpdated = true;
-        }
+        
 
-       
         if (isProfileUpdated)
         {
-            await SignInManager.RefreshSignInAsync(user);
-            isUpdated = true; 
+            await SignInManager.RefreshSignInAsync(user); 
+            isUpdated = true;
         }
     }
 
+
     private sealed class InputModel
     {
-        [Required]
-        [StringLength(50, MinimumLength = 2)]
+        // [Required]
+        // [StringLength(50, MinimumLength = 2)]
         [Display(Name = "First Name")]
         public string? FirstName { get; set; }
 
-        [Required]
-        [StringLength(50, MinimumLength = 2)]
+        // [Required]
+        // [StringLength(50, MinimumLength = 2)]
         [Display(Name = "Last Name")]
         public string? LastName { get; set; }
 
-        [Phone]
+        // [Phone]
         [Display(Name = "Phone number")]
         public string? PhoneNumber { get; set; }
 
-        [StringLength(100)]
+        // [StringLength(100)]
         [Display(Name = "Address")]
         public string? Address { get; set; }
 
-        [Required]
-        [StringLength(12, MinimumLength = 10)]
+        // [Required]
+        // [StringLength(12, MinimumLength = 10)]
         [Display(Name = "Personnummer")]
         public string? Personnummer { get; set; }
     }

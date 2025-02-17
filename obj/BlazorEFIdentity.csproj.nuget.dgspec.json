@@ -70,6 +70,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[8.0.11, )"
+            },
+            "Syncfusion.Blazor": {
+              "target": "Package",
+              "version": "[28.2.5, )"
             }
           },
           "imports": [

@@ -3,32 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\components\\account\\pages\\manage\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:components\\account\\pages\\manage\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\components\\pages\\transfercomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:components\\pages\\transfercomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\data\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:data\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\model\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:model\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\components\\pages\\amin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:components\\pages\\amin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\model\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:model\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\components\\account\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:components\\account\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\components\\account\\pages\\manage\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:components\\account\\pages\\manage\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|solutionrelative:components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3076BEF8-E325-40D9-B902-BB92D4A637BE}|BlazorEFIdentity.csproj|c:\\users\\pakhr\\onedrive\\desktop\\entityframworkidentity\\blazorefidentity\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -42,11 +54,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Model\\Transaction.cs",
+              "RelativeDocumentMoniker": "Model\\Transaction.cs",
+              "ToolTip": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Model\\Transaction.cs",
+              "RelativeToolTip": "Model\\Transaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T14:25:15.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\App.razor",
+              "RelativeDocumentMoniker": "Components\\App.razor",
+              "ToolTip": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\App.razor",
+              "RelativeToolTip": "Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-17T13:27:03.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Data\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Data\\ApplicationUser.cs",
+              "RelativeToolTip": "Data\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T13:26:36.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-17T12:19:44.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Account\\Pages\\Manage\\Index.razor",
+              "RelativeDocumentMoniker": "Components\\Account\\Pages\\Manage\\Index.razor",
+              "ToolTip": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Account\\Pages\\Manage\\Index.razor",
+              "RelativeToolTip": "Components\\Account\\Pages\\Manage\\Index.razor",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAGoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-17T11:01:51.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TransferComponent.razor",
+              "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Pages\\TransferComponent.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\TransferComponent.razor",
+              "ToolTip": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Pages\\TransferComponent.razor",
+              "RelativeToolTip": "Components\\Pages\\TransferComponent.razor",
+              "ViewState": "AgIAADsAAAAAAAAAAAAAwFEAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-17T10:21:20.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "app.css",
               "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\wwwroot\\app.css",
               "RelativeDocumentMoniker": "wwwroot\\app.css",
@@ -54,49 +144,25 @@
               "RelativeToolTip": "wwwroot\\app.css",
               "ViewState": "AgIAADAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-02-14T22:07:51.936Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Account.cs",
-              "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Model\\Account.cs",
-              "RelativeDocumentMoniker": "Model\\Account.cs",
-              "ToolTip": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Model\\Account.cs",
-              "RelativeToolTip": "Model\\Account.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T15:31:50.758Z",
+              "WhenOpened": "2025-02-14T22:07:51.936Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-14T08:54:15.75Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.razor",
-              "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Account\\Pages\\Manage\\Index.razor",
-              "RelativeDocumentMoniker": "Components\\Account\\Pages\\Manage\\Index.razor",
-              "ToolTip": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Account\\Pages\\Manage\\Index.razor",
-              "RelativeToolTip": "Components\\Account\\Pages\\Manage\\Index.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T20:46:56.695Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
@@ -108,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Routes.razor",
               "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Routes.razor",
               "RelativeDocumentMoniker": "Components\\Routes.razor",
@@ -116,29 +182,18 @@
               "RelativeToolTip": "Components\\Routes.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T14:52:12.853Z"
+              "WhenOpened": "2025-02-12T14:52:12.853Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Register.razor",
-              "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Account\\Pages\\Register.razor",
-              "RelativeDocumentMoniker": "Components\\Account\\Pages\\Register.razor",
-              "ToolTip": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Account\\Pages\\Register.razor",
-              "RelativeToolTip": "Components\\Account\\Pages\\Register.razor",
-              "ViewState": "AgIAACMBAAAAAAAAAADwvzgBAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T12:29:12.616Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Amin.razor",
               "DocumentMoniker": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Pages\\Amin.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Amin.razor",
               "ToolTip": "C:\\Users\\pakhr\\OneDrive\\Desktop\\Entityframworkidentity\\BlazorEFIdentity\\Components\\Pages\\Amin.razor",
               "RelativeToolTip": "Components\\Pages\\Amin.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-11T23:03:05.614Z",
               "EditorCaption": ""
