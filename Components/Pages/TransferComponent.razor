@@ -8,51 +8,60 @@
 @inject ApplicationDbContext dbContext
 @rendermode InteractiveServer
 
+@attribute [Authorize]
 
-<h3>TransferComponent</h3>
+@if (!string.IsNullOrWhiteSpace(message))
+{
+    <div class="alert alert-info" role="alert">
+        @message
+    </div>
+}
 
-<div class="d-flex justify-content-center " style="height: 75vh; border: 2px solid gray; width: 30%; margin-left: 30%; margin-top: 4%;">
+<div class="d-flex justify-content-center " style="height: 85vh; border: 2px solid gray; width: 30%; margin-left: 30%; margin-top: 1%;">
     <div>
         <h3 class="text-center" style="margin-top: 10%;">Transfer</h3>
         <div class="row">
             <div class="col-md-12 text-center" style="margin-top: 10%;">
                 <label for="fromAccount" class="form-label">From</label>
-                <select id="fromAccount" class="form-select" style="width: 100%; white-space: pre-line; height: 5vh;">
+                <select id="fromAccount" class="form-select" style="width: 100%; white-space: pre-line; height: 5vh;" @bind="selectedFromAccountId">
                     <option disabled selected>Choose an account</option>
                     @foreach (var account in accounts)
                     {
                         <option value="@account.Id">
-                            @account.Name
-                            (@account.AccountNumber)
-                            $@account.Balance.ToString("N2")
+                            @account.Name (@account.AccountNumber) - $@account.Balance.ToString("N2")
                         </option>
-
                     }
                 </select>
 
-                <label for="toAccountName" class="form-label" style="margin-top: 10%;">To</label>
-                <input type="text" id="toAccount" class="form-control" placeholder="Enter account Name" style="height: 5vh; margin-bottom: 2%;" />
-                <input type="text" id="toAccount" class="form-control" placeholder="Enter account number" style="height: 5vh;" />
+                <label for="toAccountName" class="form-label" style="margin-top: 10%;">To Account Name</label>
+                <input type="text" id="toAccountName" class="form-control" placeholder="Enter account Name" style="height: 5vh; margin-bottom: 2%;" @bind="toAccountName" />
+
+                <label for="toAccountNumber" class="form-label" style="margin-top: 10%;">To Account Number</label>
+                <input type="text" id="toAccountNumber" class="form-control" placeholder="Enter account number" style="height: 5vh;" @bind="toAccountNumber" />
 
                 <label for="amount" class="form-label" style="margin-top: 10%;">Amount</label>
-                <input type="text" id="amount" class="form-control" placeholder="Enter amount" style="height: 5vh;" />
+                <input type="text" id="amount" class="form-control" placeholder="Enter amount" style="height: 5vh;" @bind="amount" />
 
                 <label for="description" class="form-label" style="margin-top: 10%;">Description</label>
-                <input type="text" id="description" class="form-control" placeholder="Enter description" style="height: 5vh;" />
+                <input type="text" id="description" class="form-control" placeholder="Enter description" style="height: 5vh;" @bind="description" />
 
-                <button class="btn btn-primary mt-3" style="margin-bottom: -30%; width: 50%; height: 5vh;">Transfer</button>
+                <button class="btn btn-primary mt-3" style="margin-bottom: -30%; width: 50%; height: 5vh;" @onclick="TransferAccount">Transfer</button>
             </div>
         </div>
     </div>
 </div>
 
+
 @code {
     private ApplicationUser user;
     private List<Account> accounts = new List<Account>();
     private List<Transaction> transactions = new List<Transaction>();
+    public int selectedFromAccountId { get; set; }
     public string toAccountName { get; set; }
-    public string toAccount { get; set; }
+    public string toAccountNumber { get; set; }
     public string amount { get; set; }
+    public string description { get; set; }
+    public string message { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -64,27 +73,74 @@
             if (user != null)
             {
                 accounts = dbContext.Accounts.Where(a => a.UserId == user.Id).ToList();
-
             }
         }
     }
 
-    private async void TransferAccount(int accoundId)
+    private async Task TransferAccount()
     {
-        var Fromaccount = await dbContext.Accounts.FindAsync(accoundId);
-
-        var ToAccount = accounts.Where(a => a.AccountNumber == toAccount).FirstOrDefault();
-
-        if(Fromaccount != null && ToAccount != null)
+        if (selectedFromAccountId == 0 || string.IsNullOrWhiteSpace(toAccountNumber) || string.IsNullOrWhiteSpace(amount))
         {
-            if(Fromaccount.Balance > 0)
-            {
-               
-            }
+            message = "Please fill in all fields.";
+            return;
         }
-       
+
+        var fromAccount = await dbContext.Accounts.FindAsync(selectedFromAccountId);
+        if (fromAccount == null)
+        {
+            message = "Account not found.";
+            return;
+        }
+
+        if (!decimal.TryParse(amount, out decimal transferAmount) || transferAmount <= 0)
+        {
+            message = "Invalid amount.";
+            return;
+        }
+
+        var toAccount = dbContext.Accounts.FirstOrDefault(a => a.AccountNumber == toAccountNumber);
+        if (toAccount == null)
+        {
+            message = "Account not found.";
+            return;
+        }
+
+        if (fromAccount.Balance < transferAmount)
+        {
+            message = "Insufficient balance.";
+            return;
+        }
+
+        if (fromAccount.Id == toAccount.Id)
+        {
+            message = "You can't transfer to the same account.";
+            return;
+        }
+
+        fromAccount.Balance -= transferAmount;
+        toAccount.Balance += transferAmount;
+
+        dbContext.Update(fromAccount);
+        dbContext.Update(toAccount);
+
+        var transaction = new Transaction
+            {
+                FromAccountId = fromAccount.Id,
+                ToAccountName = toAccountName,
+                ToAccountId = toAccount.Id,
+                outgoingbalance = transferAmount,
+                Messages = description,
+                Date = DateTime.Now
+            };
+
+        dbContext.Transactions.Add(transaction);
+        await dbContext.SaveChangesAsync();
+
+        message = "Transfer successful.";
+        selectedFromAccountId = 0;
+        toAccountName = string.Empty;
+        toAccountNumber = string.Empty;
+        amount = string.Empty;
+        description = string.Empty;
     }
-
-
-
 }

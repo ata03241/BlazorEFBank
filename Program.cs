@@ -1,6 +1,7 @@
 using BlazorEFIdentity.Components;
 using BlazorEFIdentity.Components.Account;
 using BlazorEFIdentity.Data;
+using BlazorEFIdentity.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Identity;
@@ -21,9 +22,11 @@ namespace BlazorEFIdentity
                 .AddInteractiveServerComponents(); 
 
             builder.Services.AddCascadingAuthenticationState();
+           
             builder.Services.AddScoped<IdentityUserAccessor>();
             builder.Services.AddScoped<IdentityRedirectManager>();
             builder.Services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
+       
 
             builder.Services.AddAuthorization();
             builder.Services.AddAuthentication(options =>
@@ -49,6 +52,8 @@ namespace BlazorEFIdentity
 
             builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
+            
+            builder.Services.AddScoped<AccountService>();
             var app = builder.Build();
 
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NMaF5cXmBCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdmWX1fdnVTRWdcUkx1XEo=");

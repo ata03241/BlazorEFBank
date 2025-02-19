@@ -168,14 +168,14 @@
                     {
                         @foreach (var account in accounts)
                         {
-                            @* <a href="transfer" style="text-decoration: none;"> *@
-                                <div class="p-3 bg-light text-dark rounded mb-3" style="border: 2px solid gray;">
+                            <a href="/@account.Id" style="text-decoration: none;">
+                                <div class="p-3 bg-light text-dark rounded mb-3" style="border: 2px solid gray; cursor: pointer;">
                                     <h4 class="mb-1">Account Name: @account.Name</h4>
                                     <p class="mb-1"><strong>Account Number:</strong> @account.AccountNumber</p>
                                     <p class="mb-1"><strong>Balance:</strong> $@account.Balance.ToString("N2")</p>
                                 </div>
-                                <button @onclick="() => DeleteAccount(account.Id)">Remove</button>
-                            @* </a> *@
+                            </a>
+                            <button @onclick="() => DeleteAccount(account.Id)">Remove</button>
                         }
                     }
                     else
@@ -260,7 +260,7 @@
                 <h1 class="text-center text-uppercase font-weight-bold" style="font-size: 1.5rem;">Quick Links</h1>
                 <div class="d-flex flex-column gap-2 mt-3">
                     <a href="#" class="btn btn-white" style="color: black; border: 2px solid gray;">Account Summary</a>
-                    <a href="#" class="btn btn-white" style="color: black; border: 2px solid gray;">Transfer Funds</a>
+                    <a href="transfer" class="btn btn-white" style="color: black; border: 2px solid gray;">Transfer Funds</a>
                     <a href="#" class="btn btn-white" style="color: black; border: 2px solid gray;" >Pay Bills</a>
                     <a href="#" class="btn btn-white" style="color: black; border: 2px solid gray;">View Statements</a>
                     <a href="Account/Manage" class="btn btn-white" style="color: black; border: 2px solid gray;">Manage Account</a>
@@ -288,9 +288,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td colspan="7" class="text-center">No transactions found.</td>
-                    </tr>
+                    @if (transactions != null && transactions.Any())
+                    {
+                        @foreach (var transaction in transactions)
+                        {
+                            <tr>
+                                <td>@transaction.Id</td>
+                                <td>@transaction.FromAccount?.Name</td>
+                                <td>@transaction.ToAccountName</td>
+                                <td>@transaction.Date.ToString("yyyy-MM-dd")</td>
+                                <td>@transaction.outgoingbalance</td>
+                                <td>@transaction.IsReserved</td>
+                                <td>@transaction.Messages</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center">No transactions found.</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
@@ -302,6 +320,8 @@
     private ApplicationUser user;
 
     private List<Account> accounts = new List<Account>();
+
+    private List<Transaction> transactions = new List<Transaction>();
 
     private Account NewAccount = new Account();
 
@@ -331,7 +351,6 @@
             if (user != null)
             {
                 accounts = dbContext.Accounts.Where(a => a.UserId == user.Id).ToList();
-
             }
         }
     }
