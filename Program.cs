@@ -19,10 +19,10 @@ namespace BlazorEFIdentity
             builder.Services.AddSyncfusionBlazor(); // Add Syncfusion Blazor Service
             // Add services to the container.
             builder.Services.AddRazorComponents()
-                .AddInteractiveServerComponents(); 
+                .AddInteractiveServerComponents();
 
             builder.Services.AddCascadingAuthenticationState();
-           
+
             builder.Services.AddScoped<IdentityUserAccessor>();
             builder.Services.AddScoped<IdentityRedirectManager>();
             builder.Services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();

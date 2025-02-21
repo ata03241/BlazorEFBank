@@ -2,8 +2,21 @@
 @using BlazorEFIdentity.Model
 @using BlazorEFIdentity.Data
 @using BlazorEFIdentity.Services
+@rendermode InteractiveServer
 
 @inject AccountService accountService
+
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/66c72e9fea492f34bc08ed87/1i5t0s8ee';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
 
 <h1 style="margin-left: 15%;">@account.Name</h1>
 
@@ -28,6 +41,14 @@
     <div class="container mt-4" style="height: auto; width: 60%; border: 2px solid gray;">
         <h3 class="text-center">Transaction History</h3>
 
+        <div style="margin-left: 45%; margin-bottom: 2%;">
+            <label for="fromdate">From Date</label>
+            <input type="date" @bind="Fromdate"/>
+            <label for="todate">To Date</label>
+            <input type="date" @bind="Todate"/>
+            <button @onclick="FilterTransactions">Filter</button>
+        </div>
+
         <table class="table table-striped table-bordered">
             <thead class="table-dark">
                 <tr>
@@ -43,7 +64,7 @@
             <tbody>
                 @if (transactions != null && transactions.Any())
                 {
-                    @foreach (var transaction in transactions)
+                    @foreach (var transaction in filteredTransactions)
                     {
                         <tr>
                             <td>@transaction.Id</td>
@@ -73,10 +94,22 @@
     public int accountId { get; set; }
     private Account account { get; set; }
     private List<Transaction> transactions = new List<Transaction>();
+    private List<Transaction> filteredTransactions = new List<Transaction>();
+    public DateTime Fromdate { get; set; } = DateTime.Today.AddMonths(-1);
+    public DateTime Todate { get; set; } = DateTime.Today;
 
     protected override async Task OnInitializedAsync()
     {
         account = await accountService.GetAccountById(accountId);
         transactions = await accountService.GetTransactionAsync(accountId);
+        filteredTransactions = transactions;
+    }
+
+    private void FilterTransactions()
+    {
+        if(Fromdate != null && Todate != null)
+        {
+            filteredTransactions = transactions.Where(t => t.Date >= Fromdate && t.Date <= Todate).ToList();
+        }
     }
 }
